@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 function App() {
   const [width, setWidth] = useState(0);
-
+  //test
   useEffect(() => {
     window.addEventListener("resize", updateDimensions);
 
