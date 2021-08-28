@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  background-color: #d3d3d4;
+}
+.inbox-container {
+  margin-left: 6rem;
+  height: 76.8vh;
+  margin-bottom: 6rem;
+  overflow-y: scroll;
+}
+@media only screen and (max-width: 780px) {
+  .inbox-container {
+    margin-left: 0;
+  }
+}

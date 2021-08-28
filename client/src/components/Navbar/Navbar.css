@@ -1,4 +1,10 @@
-.navContainer {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.Nav-Container {
   background-color: #f24e4e;
   width: 6rem;
   height: 100%;
@@ -8,30 +14,24 @@
   align-items: center;
   left: 0;
   position: fixed;
+  box-shadow: 0.2rem 0 1rem rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  overflow-x: hidden;
 }
-.navLink {
+.Nav-Link {
   text-decoration: none;
+  background-color: #f24e4e;
   color: rgb(255, 255, 255);
   font-size: larger;
   padding: 5px;
 }
 
 @media only screen and (max-width: 780px) {
-  .navContainer {
-    background-color: #f24e4e;
+  .Nav-Container {
     width: 100%;
     height: 6rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
     bottom: 0;
-    position: fixed;
-  }
-  .navLink {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: larger;
-    padding: 5px;
   }
 }

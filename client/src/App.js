@@ -1,6 +1,8 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
+import Topnav from "./components/Topnav/Topnav";
+import Inbox from "./components/Inbox/Inbox";
 function App() {
   const [width, setWidth] = useState(0);
   //test
@@ -18,6 +20,8 @@ function App() {
   return (
     <div>
       <Navbar />
+      <Topnav />
+      <Inbox />
     </div>
   );
 }

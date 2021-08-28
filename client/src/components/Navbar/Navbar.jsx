@@ -3,14 +3,14 @@ import "./Navbar.css";
 //change
 const Sidenav = () => {
   return (
-    <nav className="navContainer">
-      <a className="navLink" href="#">
+    <nav className="Nav-Container">
+      <a className="Nav-Link" href="#">
         Inbox
       </a>
-      <a className="navLink" href="#">
+      <a className="Nav-Link" href="#">
         Keywords
       </a>
-      <a className="navLink" href="#">
+      <a className="Nav-Link" href="#">
         Settings
       </a>
     </nav>
