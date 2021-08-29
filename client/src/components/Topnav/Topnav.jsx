@@ -1,10 +1,23 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import "./Topnav.css";
 
 const Topnav = () => {
+  const [username, setUsername] = useState("username");
+  useEffect(() => {
+    fetchUsername();
+  }, []);
+  const fetchUsername = async () => {
+    const res = await fetch("http://localhost:5000/user");
+    const data = await res.text();
+    setUsername(data);
+    console.log(data);
+  };
   return (
     <div>
-      <nav className="Top-nav-container"></nav>
+      <nav className="Top-nav-container">
+        <h1 className="logo">Tmail</h1>
+        <p className="welcome">Welcome, {username}</p>
+      </nav>
       <hr className="line" />
     </div>
   );

@@ -5,6 +5,7 @@ const session = require("express-session");
 const passport = require("passport");
 const mongoose = require("mongoose");
 const app = express();
+const cors = require("cors");
 
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -25,6 +26,7 @@ function isLoggedIn(req, res, next) {
 app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send('<a href="/auth/google">Authenticate with Google</a>');
@@ -37,12 +39,12 @@ app.get(
 app.get(
   "/google/redirect",
   passport.authenticate("google", {
-    successRedirect: "/protected",
+    successRedirect: "/user",
     failureRedirect: "/auth/failure",
   })
 );
-app.get("/protected", isLoggedIn, (req, res) => {
-  res.send(`Hello ${req.user.displayName}`);
+app.get("/user", isLoggedIn, (req, res) => {
+  res.send(res.username);
 });
 
 app.get("/auth/failure", (req, res) => {
@@ -52,5 +54,9 @@ app.get("/logout", (req, res) => {
   req.logout();
   req.session.destroy();
   res.send("Goodbye!");
+});
+
+app.get("/apitest", (req, res) => {
+  res.send("This api is working!");
 });
 app.listen(5000, () => console.log("Listening on PORT: 5000"));

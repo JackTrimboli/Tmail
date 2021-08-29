@@ -1,10 +1,10 @@
 import React from "react";
 import "./Message.css";
-const message = () => {
+const message = (props) => {
   return (
     <a className="message-container">
-      <span className="message title">Title</span>
-      <span className="message subject">This is a subject.</span>
+      <span className="message title">{props.title}</span>
+      <span className="message subject">{props.subject}</span>
     </a>
   );
 };
