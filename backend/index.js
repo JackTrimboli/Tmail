@@ -1,4 +1,5 @@
 require("dotenv/config");
+require("./passportsetup");
 const inboxRoutes = require("./routes/inbox");
 const express = require("express");
 const session = require("express-session");
@@ -6,10 +7,6 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
-
-// function isLoggedIn(req, res, next) {
-//   req.user ? next() : res.sendStatus(401);
-// }
 
 app.use(
   session({
@@ -21,6 +18,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors());
+app.use("/inbox", inboxRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -45,7 +43,7 @@ app.get(
 app.get(
   "/google/redirect",
   passport.authenticate("google", {
-    successRedirect: "/user",
+    successRedirect: "/inbox",
     failureRedirect: "/auth/failure",
   })
 );

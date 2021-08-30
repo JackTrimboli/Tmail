@@ -8,15 +8,15 @@ import "./Navbar.css";
 const Sidenav = () => {
   return (
     <nav className="nav-Container">
-      <a className="nav-Link" href="#">
+      <a className="nav-Link" href="http://localhost:3000/inbox">
         <p className="nav-text">Inbox</p>
         <InboxIcon className="nav-icon" style={{ fontSize: 50 }} />
       </a>
-      <a className="nav-Link" href="#">
+      <a className="nav-Link" href="http://localhost:3000/keywords">
         <p className="nav-text">Keywords</p>
         <ErrorOutlineIcon className="nav-icon" style={{ fontSize: 50 }} />
       </a>
-      <a className="nav-Link" href="#">
+      <a className="nav-Link" href="http://localhost:3000/settings">
         <p className="nav-text">Settings</p>
         <SettingsIcon className="nav-icon" style={{ fontSize: 50 }} />
       </a>

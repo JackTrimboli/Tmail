@@ -1,5 +1,12 @@
-const app = require("express");
+const express = require("express");
+const router = express();
 
-// app.get('/', (req, res) => {
+const isLoggedIn = (req, res, next) => {
+  req.user ? next() : res.redirect("/auth/google");
+};
 
-// });
+router.get("/", isLoggedIn, (req, res) => {
+  res.json(req.user);
+});
+
+module.exports = router;
