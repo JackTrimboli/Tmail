@@ -11,9 +11,17 @@
 .logo {
   margin-left: 2rem;
   background-color: #f1f3f4;
+  color: #f24e4e;
   height: fit-content;
   margin-top: auto;
   margin-bottom: auto;
+  font-size: xxx-large;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  display: flex;
+}
+.logo-icon {
+  background-color: #f1f3f4;
+  color: black;
 }
 .welcome {
   background-color: #f1f3f4;
@@ -31,5 +39,14 @@
   }
   .welcome {
     margin-right: auto;
+  }
+  .logo {
+    font-size: xx-large;
+    align-items: center;
+    margin-left: 1.5rem;
+  }
+  .logo-icon {
+    transform: scale(0.7);
+    margin-left: -10px;
   }
 }
