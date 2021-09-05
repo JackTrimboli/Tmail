@@ -9,19 +9,26 @@ import Landing from "./components/Landing/Landing";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
-  if (loggedIn) {
-    return (
-      <Router>
+  return (
+    <Router>
+      <Route exact path="/" component={Landing} />
+      <Route path="/inbox">
         <Navbar />
         <Topnav />
-        <Route path="/inbox" component={Inbox} />
-        <Route path="/keywords" component={Keywords} />
-        <Route path="/settings" component={Settings} />
-      </Router>
-    );
-  } else {
-    return <Landing />;
-  }
+        <Inbox />
+      </Route>
+      <Route path="/keywords">
+        <Navbar />
+        <Topnav />
+        <Keywords />
+      </Route>
+      <Route path="/settings">
+        <Navbar />
+        <Topnav />
+        <Settings />
+      </Route>
+    </Router>
+  );
 }
 
 export default App;

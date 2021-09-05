@@ -7,7 +7,13 @@
   display: inline-block;
   display: flex;
   background-color: #f1f3f4;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
   border-bottom: solid 0.25px grey;
+}
+.message-container:active {
+  color: red;
 }
 .message {
   background-color: inherit;

@@ -18,7 +18,7 @@ const Landing = () => {
         <span className="landing-subheader">
           Sign in with google to get started
         </span>
-        <a className="login-btn" href="http://localhost:5000">
+        <a className="login-btn" href="http://localhost:5000/auth">
           Sign in with Google
         </a>
       </div>
