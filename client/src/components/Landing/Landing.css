@@ -35,13 +35,13 @@
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   z-index: 1;
 }
-.logo-icon {
+.landing-logo-icon {
   background-color: #ffff;
   z-index: 0;
   color: black;
 }
 .landing-header {
-  margin-top: 30px;
+  margin-top: 3rem;
 }
 .landing-subheader {
   margin-top: 20px;

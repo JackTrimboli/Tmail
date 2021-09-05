@@ -9,9 +9,6 @@ import Landing from "./components/Landing/Landing";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {}, []);
   if (loggedIn) {
     return (
       <Router>

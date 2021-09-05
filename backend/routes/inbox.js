@@ -2,6 +2,7 @@ const express = require("express");
 const router = express();
 const { google } = require("googleapis");
 const fs = require("fs");
+const cors = require("cors");
 const { authorize } = require("passport");
 const SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"];
 const TOKEN_PATH = "token.json";
@@ -35,6 +36,16 @@ const getLabels = (auth) => {
     }
   );
 };
-router.get("/", isLoggedIn, (req, res, next) => {});
+router.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
+router.get("/", isLoggedIn, (req, res, next) => {
+  res.send("Logged in");
+});
+router.get("/user", isLoggedIn, (req, res, next) => {
+  res.send(req.user);
+});
 
 module.exports = router;

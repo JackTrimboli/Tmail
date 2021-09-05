@@ -17,7 +17,11 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 app.use("/inbox", inboxRoutes);
 
 mongoose
@@ -43,12 +47,12 @@ app.get(
 app.get(
   "/google/redirect",
   passport.authenticate("google", {
-    successRedirect: "/inbox",
+    successRedirect: "http://localhost:3000/home",
     failureRedirect: "/auth/failure",
   })
 );
 app.get("/auth/failure", (req, res) => {
-  res.send("Authenication Failed.");
+  res.send("Authentication Failed.");
 });
 app.get("/logout", (req, res) => {
   req.logout();

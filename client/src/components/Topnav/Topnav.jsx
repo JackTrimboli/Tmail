@@ -4,9 +4,19 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 
 const Topnav = () => {
   const [username, setUsername] = useState("username");
-  // useEffect(() => {
-
-  // }, []);
+  const loadUsername = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/inbox/user");
+      const data = await res.text();
+      console.log(data);
+      // setUsername(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    loadUsername();
+  }, []);
 
   return (
     <div>
