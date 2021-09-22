@@ -1,0 +1,22 @@
+.display-container {
+  width: 100%;
+  height: 3rem;
+  background-color: #dcdcdd;
+}
+.display-label {
+  background-color: #dcdcdd;
+}
+.display-delete {
+  background-color: #dcdcdd;
+  margin: auto;
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+}
+.display-delete:hover {
+  color: white;
+}
+.delete-icon {
+  background-color: #dcdcdd;
+}

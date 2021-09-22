@@ -1,22 +1,17 @@
-import { React, useState, useEffect } from "react";
+import { React, useContext } from "react";
 import "./Topnav.css";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import { myContext } from "../../Context";
 
 const Topnav = () => {
-  const [username, setUsername] = useState("username");
-  const loadUsername = async () => {
-    try {
-      const res = await fetch("http://localhost:5000/inbox/user");
-      const data = await res.text();
-      console.log(data);
-      // setUsername(data);
-    } catch (err) {
-      console.log(err);
-    }
+  const userObj = useContext(myContext);
+  console.log("In top nav: ", userObj);
+
+  const getUser = () => {
+    if (userObj) {
+      return userObj.username;
+    } else return "no user";
   };
-  useEffect(() => {
-    loadUsername();
-  }, []);
 
   return (
     <div>
@@ -25,7 +20,7 @@ const Topnav = () => {
           Tmail
           <MailOutlineIcon className="logo-icon" style={{ fontSize: 60 }} />
         </h1>
-        <p className="welcome">Welcome, {username}</p>
+        <p className="welcome">Welcome, {getUser()}</p>
       </nav>
       <hr className="line" />
     </div>

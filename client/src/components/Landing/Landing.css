@@ -62,9 +62,6 @@
 }
 
 @media only screen and (max-width: 780px) {
-  .Top-nav-container {
-    margin-left: 0;
-  }
   .greeting-container {
     margin: auto;
     height: 100vh;

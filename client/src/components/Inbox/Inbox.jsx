@@ -5,14 +5,6 @@ import "./Inbox.css";
 const Inbox = () => {
   const [messages, setMessages] = useState([]);
 
-  useEffect(() => {
-    loadData();
-  }, []);
-
-  const loadData = async () => {
-    const res = await fetch("http://localhost:5000/");
-    const data = await res.text();
-  };
   return (
     <div className="inbox-container">
       <Message title="test" subject={messages} />

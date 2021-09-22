@@ -10,20 +10,18 @@ router.get(
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
-router.get(
-  "/google/redirect",
-  passport.authenticate("google", {
-    successRedirect: "http://localhost:3000/inbox",
-    failureRedirect: "http://localhost:3000/login",
-  })
-);
-router.get("/failure", (req, res) => {
-  res.send("Authentication Failed.");
+router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
+  // res.send(req.user);
+  res.redirect("http://localhost:3000");
 });
+
+router.get("/getuser", (req, res) => {
+  req.user ? res.send(req.user) : res.send("nouser");
+});
+
 router.get("/logout", (req, res) => {
   req.logout();
-  req.session.destroy();
-  res.send("Goodbye!");
+  res.redirect("http://localhost:3000/login");
 });
 
 module.exports = router;
