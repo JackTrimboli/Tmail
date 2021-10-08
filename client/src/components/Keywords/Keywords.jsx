@@ -28,6 +28,14 @@ const Keywords = () => {
         userObj._id
     );
     e.preventDefault();
+
+    for (let i = 0; i < userObj.keywords.length; i++) {
+      if (userObj.keywords[i] === text) {
+        setText("");
+        return;
+      }
+    }
+
     axios
       .post("http://localhost:5000/keywords", {
         phrase: text,
