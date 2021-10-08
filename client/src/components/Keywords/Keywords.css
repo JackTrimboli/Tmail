@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  background-color: #d3d3d4;
 }
 .keywords-container {
   margin-left: 6rem;
@@ -45,8 +44,17 @@
   padding: 10px 15px;
   border-radius: 5px;
 }
+.keywords-add-btn:hover {
+  background-color: hsl(0, 97%, 77%);
+}
+.keywords-clear-btn:hover {
+  background-color: #ebebeb;
+}
 .keywords-display {
+  overflow: visible;
   margin-left: 2rem;
+  margin-right: 3rem;
+  margin-bottom: 1rem;
 }
 .keywords-subheader {
   margin-top: 2rem;
@@ -59,5 +67,9 @@
     margin-right: 2rem;
   }
   .keywords-input {
+  }
+  .keywords-display {
+    margin-left: 1rem;
+    margin-right: 0;
   }
 }

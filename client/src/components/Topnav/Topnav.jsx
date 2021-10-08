@@ -5,7 +5,6 @@ import { myContext } from "../../Context";
 
 const Topnav = () => {
   const userObj = useContext(myContext);
-  console.log("In top nav: ", userObj);
 
   const getUser = () => {
     if (userObj) {

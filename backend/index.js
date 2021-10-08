@@ -1,6 +1,7 @@
 require("dotenv/config");
-const inboxRoutes = require("./routes/inbox");
+
 const authRoutes = require("./routes/auth");
+const keywordRoute = require("./routes/keywords");
 const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
@@ -11,6 +12,8 @@ const User = require("./models/user-model");
 const cookieSession = require("cookie-session");
 
 const app = express();
+
+app.use(express.json());
 
 app.use(
   cookieSession({
@@ -86,8 +89,9 @@ passport.deserializeUser((id, done) => {
     done(null, user);
   });
 });
+app.use(express.urlencoded({ extended: false }));
 
-app.use("/inbox", inboxRoutes);
+app.use("/keywords", keywordRoute);
 app.use("/auth", authRoutes);
 
 app.listen(5000, () => console.log("Listening on PORT: 5000"));

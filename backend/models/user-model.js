@@ -14,6 +14,12 @@ const userSchema = new Schema({
     required: true,
     unique: true,
   },
+  keywords: [
+    {
+      type: String,
+      unique: true,
+    },
+  ],
 });
 
 const User = mongoose.model("user", userSchema);

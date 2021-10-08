@@ -1,22 +1,51 @@
 .display-container {
-  width: 100%;
+  width: 99%;
   height: 3rem;
+  border-radius: 2px;
   background-color: #dcdcdd;
+  display: flex;
+  margin: none;
+  border-bottom-width: 0.5px;
+  border-bottom-color: rgb(148, 148, 148);
+  border-bottom-style: solid;
 }
 .display-label {
   background-color: #dcdcdd;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 1rem;
 }
 .display-delete {
   background-color: #dcdcdd;
-  margin: auto;
   border: none;
   width: fit-content;
-  height: fit-content;
+  height: 100%;
   cursor: pointer;
+  margin-right: 1rem;
 }
 .display-delete:hover {
   color: white;
 }
 .delete-icon {
   background-color: #dcdcdd;
+}
+.display-container:hover {
+  background-color: #ebebeb;
+}
+.display-container:hover .display-label {
+  background-color: #ebebeb;
+}
+.display-container:hover .delete-icon {
+  background-color: #ebebeb;
+}
+.display-container:hover .display-delete {
+  background-color: #ebebeb;
+}
+
+@media only screen and (max-width: 780px) {
+  .display-container {
+    width: 100%;
+    margin: 0;
+  }
 }
