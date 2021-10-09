@@ -17,7 +17,7 @@ const userSchema = new Schema({
   keywords: [
     {
       type: String,
-      unique: true,
+      unique: false,
     },
   ],
 });
