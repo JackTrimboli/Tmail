@@ -7,7 +7,13 @@ router.get("/", (req, res) => {
 });
 router.get(
   "/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/gmail.readonly",
+      "profile",
+      "email",
+    ],
+  })
 );
 
 router.get("/google/redirect", passport.authenticate("google"), (req, res) => {

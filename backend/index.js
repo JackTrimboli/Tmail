@@ -1,7 +1,7 @@
 require("dotenv/config");
-
 const authRoutes = require("./routes/auth");
-const keywordRoute = require("./routes/keywords");
+const keywordRoutes = require("./routes/keywords");
+const inboxRoutes = require("./routes/inbox");
 const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
@@ -10,6 +10,7 @@ const cors = require("cors");
 const GoogleStrategy = require("passport-google-oauth2").Strategy;
 const User = require("./models/user-model");
 const cookieSession = require("cookie-session");
+const fs = require("fs");
 
 const app = express();
 
@@ -51,9 +52,20 @@ passport.use(
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "http://localhost:5000/auth/google/redirect",
+      tokenURL: process.env.TOKEN_URL,
     },
     (accessToken, refreshToken, profile, done) => {
       console.log("passport callback function fired");
+      let tokens = {
+        access_token: accessToken,
+        refresh_token: refreshToken,
+        scope: otherTokenDetails.scope,
+        token_type: otherTokenDetails.token_type,
+        expiry_date: otherTokenDetails.expires_in,
+      };
+      let data = JSON.stringify(tokens);
+      fs.writeFileSync("./tokens.json", data);
+      //Finding the user in the database
       User.findOne({
         googleId: profile.id,
       }).then((currentUser) => {
@@ -91,7 +103,8 @@ passport.deserializeUser((id, done) => {
 });
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/keywords", keywordRoute);
+app.use("/keywords", keywordRoutes);
 app.use("/auth", authRoutes);
+app.use("/inbox", inboxRoutes);
 
 app.listen(5000, () => console.log("Listening on PORT: 5000"));
